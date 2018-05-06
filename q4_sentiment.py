@@ -10,7 +10,7 @@ from q4_softmaxreg import softmaxRegression, getSentenceFeature, accuracy, softm
 # NOTE: fill in one more "your code here" below before running!
 REGULARIZATION = None   # Assign a list of floats in the block below
 ### YOUR CODE HERE
-raise NotImplementedError
+REGULARIZATION = sorted(np.logspace(-4,-1, num=10, base=10))
 ### END YOUR CODE
 
 # Load the dataset
@@ -86,7 +86,9 @@ BEST_REGULARIZATION = None
 BEST_WEIGHTS = None
 
 ### YOUR CODE HERE 
-raise NotImplementedError
+best = max(results, key=lambda model: model["dev"])
+BEST_REGULARIZATION = best["reg"]
+BEST_WEIGHTS = best["weights"]
 ### END YOUR CODE
 
 # Test your findings on the test set
